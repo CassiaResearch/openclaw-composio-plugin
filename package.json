@@ -21,7 +21,7 @@
     "extensions": ["./index.ts"]
   },
   "dependencies": {
-    "@composio/core": "^0.5.5",
+    "@composio/core": "latest",
     "@sinclair/typebox": "0.34.47",
     "zod": "^4.3.6"
   }

@@ -28,39 +28,35 @@ x-consumer-api-key: ck_your_consumer_key_here
 
 ## Setup Flow
 
-1. Install the plugin via npm (`@composio/openclaw-plugin`)
+1. Install the plugin: `openclaw plugins install @composio/openclaw-plugin`
 2. Log in at [dashboard.composio.dev](https://dashboard.composio.dev)
 3. Go to Settings and copy your consumer API key (starts with `ck_`)
-4. Add it to your OpenClaw config (see below)
+4. Configure the key:
+   ```bash
+   openclaw config set plugins.entries.composio.config.consumerKey "ck_your_key_here"
+   ```
+5. Restart the gateway:
+   ```bash
+   openclaw gateway restart
+   ```
 
-## How to configure in OpenClaw
+## How it works
 
-Add the Composio MCP server under `mcpServers` in your agent config:
+The plugin connects to the Composio MCP server during startup, fetches all available tools, and registers them directly into the agent. No manual MCP config is needed — the plugin handles the connection internally.
 
-```json
-{
-  "mcpServers": {
-    "composio": {
-      "url": "https://connect.composio.dev/mcp",
-      "headers": {
-        "x-consumer-api-key": "ck_your_consumer_key_here"
-      }
-    }
-  }
-}
-```
+Once loaded, tools are callable by name. The agent does not need to search or discover tools at runtime.
 
 ## What the agent can do
 
 Once connected, the agent can:
 
-- Search for tools by describing a task (e.g. "send an email", "create a GitHub issue")
-- Execute any tool for connected accounts (OAuth or API key)
-- Manage connections to toolkits (connect, disconnect, check status)
+- Call any registered Composio tool directly by name
+- Execute tools for connected accounts (OAuth or API key)
+- If a tool returns an auth error, direct the user to connect that app at [dashboard.composio.dev](https://dashboard.composio.dev)
 
 ## References
 
-- [Composio Tool Router Docs](https://docs.composio.dev/tool-router/overview)
+- [Composio Docs](https://docs.composio.dev/docs/quickstart)
 - [MCP Protocol](https://modelcontextprotocol.io)
 - [Composio Platform](https://platform.composio.dev)
 - [Composio Dashboard](https://dashboard.composio.dev)

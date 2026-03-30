@@ -42,7 +42,7 @@ const composioPlugin = {
 
     if (!config.consumerKey) {
       api.logger.warn(
-        "[composio] No consumer key configured. Set COMPOSIO_CONSUMER_KEY env var or plugins.composio.consumerKey in config. Get your key (ck_...) from dashboard.composio.dev/~/org/connect/clients/openclaw"
+        "[composio] No consumer key configured. Set COMPOSIO_CONSUMER_KEY env var or plugins.entries.composio.config.consumerKey in config. Get your key (ck_...) from dashboard.composio.dev/~/org/connect/clients/openclaw"
       );
       return;
     }

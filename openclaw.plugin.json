@@ -2,9 +2,6 @@
   "id": "composio",
   "name": "Composio",
   "description": "Access 1000+ third-party tools via Composio (Gmail, Slack, GitHub, Notion, etc.)",
-  "skills": [
-    "./skills"
-  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,

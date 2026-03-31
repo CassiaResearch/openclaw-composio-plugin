@@ -4,6 +4,9 @@ build/
 .tsbuildinfo
 *.tsbuildinfo
 
+testing/
+docker/
+
 *.log
 npm-debug.log*
 yarn-debug.log*

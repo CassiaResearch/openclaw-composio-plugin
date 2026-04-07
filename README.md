@@ -1,5 +1,9 @@
 # Composio Plugin for OpenClaw
 
+> **⚠️ This plugin is no longer actively maintained.** We're excited to announce our [Universal CLI](https://composio.dev/cli), optimized for use with OpenClaw. It outperformed this plugin on internal benchmarks, and we recommend migrating to it. This plugin will continue to work but will not receive new features or bug fixes.
+>
+> [Get started with the Universal CLI →](https://composio.dev/cli)
+
 Access 1000+ third-party tools via Composio MCP — Gmail, Slack, GitHub, Notion, Linear, Jira, HubSpot, Salesforce, Google Drive, and more.
 
 ## Install

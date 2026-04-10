@@ -21,9 +21,9 @@ const composioPlugin = {
       return;
     }
 
-    if (!config.consumerKey) {
+    if (!config.consumerKey && !config.apiKey) {
       api.logger.warn(
-        "[composio] No consumer key configured. Run 'openclaw composio setup' or set COMPOSIO_CONSUMER_KEY env var."
+        "[composio] No credentials configured. Set COMPOSIO_CONSUMER_KEY (ck_...) or COMPOSIO_API_KEY (ak_...) env var, or run 'openclaw composio setup'."
       );
       return;
     }
@@ -34,8 +34,8 @@ const composioPlugin = {
       prependSystemContext: getSystemPrompt(promptState),
     }));
 
-    const mcpReady = getSharedMcpClient(config.mcpUrl, config.consumerKey, api.logger);
-    const { tools, error } = getCachedTools(config.mcpUrl, config.consumerKey, api.logger);
+    const mcpReady = getSharedMcpClient(config, api.logger);
+    const { tools, error } = getCachedTools(config, api.logger);
 
     if (error) {
       promptState.connectError = error;
